@@ -14,6 +14,7 @@ const elementsToAnimate = document.querySelectorAll('.fade-in');
 
 // Añadir el observer a cada elemento
 elementsToAnimate.forEach(el => observer.observe(el));
+
 const toggleDarkModeBtn = document.getElementById('toggle-dark-mode');
 const body = document.body;
 
@@ -37,15 +38,37 @@ function createStars() {
     }
 }
 
-// Alternar modo noche con animación
-toggleDarkModeBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
+// Función para alternar el modo noche
+function toggleDarkMode() {
+    const isDarkMode = body.classList.toggle('dark-mode');
+    toggleDarkModeBtn.textContent = isDarkMode ? '☀️' : '🌙';
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
 
-    // Generar estrellas si entra en modo noche
-    if (body.classList.contains('dark-mode')) {
+    if (isDarkMode) {
         createStars();
+    }
+}
+
+// Inicializar el estado de modo noche
+function initializeDarkMode() {
+    const savedMode = localStorage.getItem('darkMode');
+    if (savedMode === 'enabled') {
+        body.classList.add('dark-mode');
         toggleDarkModeBtn.textContent = '☀️';
+        createStars();
     } else {
+        body.classList.remove('dark-mode');
         toggleDarkModeBtn.textContent = '🌙';
+    }
+}
+
+// Inicializar el estado del modo noche al cargar la página
+initializeDarkMode();
+
+// Agregar evento al botón para alternar el modo noche
+toggleDarkModeBtn.addEventListener('click', toggleDarkMode);
+window.addEventListener('storage', (event) => {
+    if (event.key === 'darkMode') {
+        initializeDarkMode();
     }
 });

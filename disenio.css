@@ -118,7 +118,7 @@ img {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
-    color: #666;
+    color: #0284c7;
 }
 
 /* Services Section */
@@ -318,7 +318,7 @@ body.dark-mode {
 }
 
 body.dark-mode a {
-    color: #f97316;
+    color: #ffffff;
 }
 
 body.dark-mode .header {
