@@ -79,7 +79,7 @@ createMoon();
 const style = document.createElement('style');
 style.innerHTML = `
     .stars, .comets, .moon {
-        position: absolute;
+        position: fixed;
         width: 100%;
         height: 100%;
         overflow: hidden;
