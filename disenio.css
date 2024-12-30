@@ -313,7 +313,7 @@ img {
 }
 
 body.dark-mode {
-    background-color: #1a202c;
+    background-color: #000000;
     color: #f4f4f9;
 }
 
@@ -322,7 +322,7 @@ body.dark-mode a {
 }
 
 body.dark-mode .header {
-    background-color: #2d3748;
+    background-color: #000000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
